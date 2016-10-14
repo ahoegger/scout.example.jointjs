@@ -1,26 +1,21 @@
 package ch.ahoegger.scout.example.jointjs.client.helloworld;
 
-import org.eclipse.scout.rt.client.dto.FormData;
-import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
 import org.eclipse.scout.rt.client.ui.form.fields.groupbox.AbstractGroupBox;
 import org.eclipse.scout.rt.client.ui.form.fields.stringfield.AbstractStringField;
-import org.eclipse.scout.rt.platform.BEANS;
+import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.shared.AbstractIcons;
 import org.eclipse.scout.rt.shared.TEXTS;
 
 import ch.ahoegger.scout.example.jointjs.client.helloworld.HelloWorldForm.MainBox.TopBox;
 import ch.ahoegger.scout.example.jointjs.client.helloworld.HelloWorldForm.MainBox.TopBox.MessageField;
-import ch.ahoegger.scout.example.jointjs.shared.helloworld.HelloWorldFormData;
-import ch.ahoegger.scout.example.jointjs.shared.helloworld.IHelloWorldService;
 
 /**
  * <h3>{@link HelloWorldForm}</h3>
  *
  * @author aho
  */
-@FormData(value = HelloWorldFormData.class, sdkCommand = FormData.SdkCommand.CREATE)
 public class HelloWorldForm extends AbstractForm {
 
 	public HelloWorldForm() {
@@ -89,11 +84,6 @@ public class HelloWorldForm extends AbstractForm {
 
 		@Override
 		protected void execLoad() {
-			IHelloWorldService service = BEANS.get(IHelloWorldService.class);
-			HelloWorldFormData formData = new HelloWorldFormData();
-			exportFormData(formData);
-			formData = service.load(formData);
-			importFormData(formData);
 		}
 	}
 }
