@@ -3,13 +3,13 @@ package ch.ahoegger.scout.example.jointjs.client.helloworld;
 import org.eclipse.scout.rt.client.ui.form.AbstractForm;
 import org.eclipse.scout.rt.client.ui.form.AbstractFormHandler;
 import org.eclipse.scout.rt.client.ui.form.fields.groupbox.AbstractGroupBox;
-import org.eclipse.scout.rt.client.ui.form.fields.stringfield.AbstractStringField;
 import org.eclipse.scout.rt.platform.Order;
 import org.eclipse.scout.rt.shared.AbstractIcons;
 import org.eclipse.scout.rt.shared.TEXTS;
 
+import ch.ahoegger.scout.example.jointjs.client.custom.jointjs.AbstractJointJsField;
 import ch.ahoegger.scout.example.jointjs.client.helloworld.HelloWorldForm.MainBox.TopBox;
-import ch.ahoegger.scout.example.jointjs.client.helloworld.HelloWorldForm.MainBox.TopBox.MessageField;
+import ch.ahoegger.scout.example.jointjs.client.helloworld.HelloWorldForm.MainBox.TopBox.JointJsField;
 
 /**
  * <h3>{@link HelloWorldForm}</h3>
@@ -45,8 +45,8 @@ public class HelloWorldForm extends AbstractForm {
 		return getFieldByClass(TopBox.class);
 	}
 
-	public MessageField getMessageField() {
-		return getFieldByClass(MessageField.class);
+	public JointJsField getJointJsField() {
+		return getFieldByClass(JointJsField.class);
 	}
 
 	@Order(1000)
@@ -57,25 +57,26 @@ public class HelloWorldForm extends AbstractForm {
 
 			@Override
 			protected String getConfiguredLabel() {
-				return TEXTS.get("MessageFromServer");
+				return TEXTS.get("AnExampleGraph");
 			}
 
-			@Order(1000)
-			public class MessageField extends AbstractStringField {
+			@Order(1000.0)
+			public class JointJsField extends AbstractJointJsField {
 				@Override
 				protected int getConfiguredGridW() {
 					return 2;
 				}
 
 				@Override
-				protected String getConfiguredLabel() {
-					return TEXTS.get("Message");
+				protected int getConfiguredGridH() {
+					return 5;
 				}
 
 				@Override
-				protected boolean getConfiguredEnabled() {
+				protected boolean getConfiguredLabelVisible() {
 					return false;
 				}
+
 			}
 		}
 	}
