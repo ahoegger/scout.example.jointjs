@@ -20,7 +20,8 @@
   <properties>
     <ch.ahoegger.scout.example.jointjs.version>${project.version}</ch.ahoegger.scout.example.jointjs.version>
     <jdk.source.version>1.8</jdk.source.version>
-    <org.eclipse.scout.rt.version>6.0.100.RC4</org.eclipse.scout.rt.version>
+    <org.eclipse.scout.rt.version>6.1.0-SNAPSHOT</org.eclipse.scout.rt.version>
+<!--     <org.eclipse.scout.rt.version>6.0.100.RC4</org.eclipse.scout.rt.version> -->
   </properties>
 
   <modules>
